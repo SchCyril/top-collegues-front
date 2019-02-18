@@ -51,5 +51,8 @@ export class AccueilComponentComponent implements OnInit {
 
   ngOnInit() {
   }
+  refresh(): void {
+    window.location.reload();
+}
 
 }

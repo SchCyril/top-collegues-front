@@ -2,3 +2,8 @@
  body {
     max-width: 99%;
 }
+.ngx-pagination {
+    text-align: center;
+   }
+
+
