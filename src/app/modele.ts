@@ -11,3 +11,8 @@ export enum Avis {
     DETESTER,
 }
 
+export interface Vote {
+    collegue : Collegue
+    avis : Avis
+
+}

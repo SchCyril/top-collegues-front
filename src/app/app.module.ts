@@ -8,6 +8,7 @@ import { CollegueComponent } from './collegue/collegue.component';
 import { AvisComponent } from './avis/avis.component';
 import { ListeColleguesComponentComponent } from './liste-collegues-component/liste-collegues-component.component';
 import { AccueilComponentComponent } from './accueil-component/accueil-component.component';
+import { HistoriqueVotesComponent } from './historique-votes/historique-votes.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AccueilComponentComponent } from './accueil-component/accueil-component
     AvisComponent,
     ListeColleguesComponentComponent,
     AccueilComponentComponent,
+    HistoriqueVotesComponent,
     
   ],
   imports: [
