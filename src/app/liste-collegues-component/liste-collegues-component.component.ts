@@ -8,11 +8,23 @@ import { Collegue } from '../modele';
 })
 export class ListeColleguesComponentComponent implements OnInit {
 
-  @Input() collegues: Collegue [];
+  @Input() collegues: Collegue[];
+
+  pager: any = {};
+
+  // paged items
+  pagedItems: any[];
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  setPage(page: number) {
+    if (page < 1 || page > this.pager.totalPages) {
+        return;
+    }
+
   }
 
 }

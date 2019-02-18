@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 import { AppComponent } from './app.component';
 import { BonjourComponent } from './bonjour/bonjour.component';
 import { BonjourAvecPrenomComponent } from './bonjour-avec-prenom/bonjour-avec-prenom.component';
@@ -17,10 +17,13 @@ import { AccueilComponentComponent } from './accueil-component/accueil-component
     CollegueComponent,
     AvisComponent,
     ListeColleguesComponentComponent,
-    AccueilComponentComponent
+    AccueilComponentComponent,
+    
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgxPaginationModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

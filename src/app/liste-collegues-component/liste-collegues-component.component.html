@@ -1,13 +1,9 @@
-
 <div class="row">
-    <div class = "col-sm-4" *ngFor = "let obj of collegues | slice:0:3">
+  <div class="col-sm-4" *ngFor="let obj of collegues | paginate: { itemsPerPage: 3, currentPage: p }">
     <div class="col-sm-4">
-        <app-collegue [collegue] = "obj"></app-collegue>
+      <app-collegue [collegue]="obj"></app-collegue>
     </div>
-
-
+  </div>
 </div>
-</div>
-
-
- 
+             
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
