@@ -25,10 +25,26 @@ export class AccueilComponentComponent implements OnInit {
       score: 0,
     },
     {
-      photoUrl: "https://www.terravoyages.com/upload/les_plus_beaux_lacs_du_monde_lago_toree_argentine1-1024x660.jpg",
-      pseudo: 'Soleil',
+      photoUrl: "https://fr.cdn.v5.futura-sciences.com/buildsv6/images/mediumoriginal/3/6/7/36703a61ed_nodam_2789-1024x768-82a2e.jpg",
+      pseudo: 'Palmier',
       score: 0,
-    }
+    },
+
+    {
+      photoUrl: "https://e-metropolitain.fr/wp-content/uploads/2017/04/IMGP1469-1024x686.jpg",
+      pseudo: 'Moureze',
+      score: 0,
+    },
+    {
+      photoUrl: "https://www.am-paysage.com/wp-content/uploads/2014/11/paysage1.jpg",
+      pseudo: 'Pré',
+      score: 0,
+    },
+    {
+      photoUrl: "https://sf1.viepratique.fr/wp-content/uploads/sites/5/2017/06/ile-skye-750x410.jpg",
+      pseudo: 'Chute',
+      score: 0,
+    },
   ]
 
   constructor() { }
