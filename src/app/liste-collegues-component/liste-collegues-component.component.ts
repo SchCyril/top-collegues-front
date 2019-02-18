@@ -15,13 +15,14 @@ export class ListeColleguesComponentComponent implements OnInit {
   // paged items
   pagedItems: any[];
 
+
   constructor() { }
 
   ngOnInit() {
   }
-
-  setPage(page: number) {
-    if (page < 1 || page > this.pager.totalPages) {
+  p: number = 1;
+  setPage(p: number) {
+    if (p < 1 || p > this.pager.totalPages) {
         return;
     }
 
