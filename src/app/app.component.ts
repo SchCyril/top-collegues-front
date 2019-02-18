@@ -9,7 +9,7 @@ import { Collegue } from './modele';
 export class AppComponent {
   title = 'top-collegue-front';
   unCollegue : Collegue =  {
-    photoUrl : "https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072_960_720.jpg",
+    photoUrl : "https://nighthelper.com/wp-content/uploads/2016/03/nature_waterfall_summer_lake_trees_90400_3840x2160.jpg",
     pseudo : 'Cyril',
     score : 0, 
     
