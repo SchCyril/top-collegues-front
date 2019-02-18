@@ -1,7 +1,7 @@
 <p>
-  <img src = {{collegue.photoUrl}} >
+  <img src = {{collegue.photoUrl}} id="photo">
   </p>
-  {{collegue.pseudo}}
+  {{collegue.pseudo | uppercase}}
   {{collegue.score}}
 
   <app-avis (avis)='vote($event)' [btnLikeActif]="likeActif" [btnUnlikeActif]="unLikeActif"></app-avis>

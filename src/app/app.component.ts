@@ -8,17 +8,13 @@ import { Collegue } from './modele';
 })
 export class AppComponent {
   title = 'top-collegue-front';
-  unCollegue : Collegue =  {
-    photoUrl : "https://nighthelper.com/wp-content/uploads/2016/03/nature_waterfall_summer_lake_trees_90400_3840x2160.jpg",
-    pseudo : 'Cyril',
-    score : 0, 
-    
-  }
-   
+  unCollegue: Collegue = {
+    photoUrl: "https://www.terravoyages.com/upload/les_plus_beaux_lacs_du_monde_lago_toree_argentine1-1024x660.jpg",
+    pseudo: 'Cyril',
+    score: 0,
 
-    
+  };
+
   
-  
- 
 }
-  
+
