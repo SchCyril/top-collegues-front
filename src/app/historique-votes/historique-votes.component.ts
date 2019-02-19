@@ -8,9 +8,12 @@ import { DataService } from '../services/data.service';
 })
 export class HistoriqueVotesComponent implements OnInit {
 
-  constructor(private _data: DataService) { }
+  constructor(public _data: DataService) { }
 
   ngOnInit() {
   }
-
+  deleteClient(index : number){
+    console.log(index);
+    this._data.deleteClient(index);
+  }
 }

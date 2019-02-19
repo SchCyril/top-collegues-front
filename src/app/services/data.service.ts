@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Collegue, Avis, Vote } from '../modele';
+import { Source } from 'webpack-sources';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { Collegue, Avis, Vote } from '../modele';
 export class DataService {
 
   // TODO alimenter la liste de collègues
-  
+
   private listeCollegues: Collegue[] = [
     {
       photoUrl: "https://i.pinimg.com/originals/39/78/c8/3978c88ee6fe2933568e37e8a8f72061.jpg",
@@ -46,20 +47,28 @@ export class DataService {
       pseudo: 'Chute',
       score: 0,
     },
-  ];
-  private listeVotes: Vote[] = [
-    {
-      collegue: this.listeCollegues[0],
-      avis: Avis.AIMER
-    },
-    {
-      collegue: this.listeCollegues[1],
-      avis: Avis.DETESTER
-    }
 
-  ]
+
+  ];
+ 
+
+  private listeVotes: Vote[] = [
+    // {
+    //   collegue: this.listeCollegues[0],
+    //   avis: Avis.AIMER
+    // },
+    // {
+    //   collegue: this.listeCollegues[1],
+    //   avis: Avis.DETESTER
+    // }
+
+  ];
+
+
 
   constructor() { }
+
+
 
   lister(): Collegue[] {
     // TODO retourner une liste fictives de collègues 
@@ -71,14 +80,22 @@ export class DataService {
       collegue.score++;
     } else if (avis === Avis.DETESTER) {
       collegue.score--;
-
-      return collegue;
     }
+    let clone:Vote = { collegue: {...collegue}, avis};
+
+    this.listeVotes.push(clone)
+    return collegue;
   }
 
   listerVotes(): Vote[] {
     // TODO retourner la liste des votes.
+    
+
     return this.listeVotes;
+  }
+
+  deleteClient(index: number) {
+    this.listeVotes.splice(index, 1);
   }
 
 }

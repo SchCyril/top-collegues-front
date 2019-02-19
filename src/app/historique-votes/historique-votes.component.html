@@ -1,10 +1,13 @@
  historique-votes works!
-  <div *ngFor="let vote of _data.listerVotes()">
+  <div *ngFor="let vote of _data.listerVotes(); index as index">
       <img src = {{vote.collegue.photoUrl}} id="photo">
     {{vote.collegue.pseudo}}
 
     <span *ngIf="vote.avis === 0"> il est aimé, avec un score de {{vote.collegue.score}}</span>
-    <span *ngIf="vote.avis === 1">il est détesté, avec un score de {{vote.collegue.score}}</span>
-    
+    <span *ngIf="vote.avis === 1">il est détesté, avec un score de {{vote.collegue.score}}</span> 
+    <div>
+      <button (click)="deleteClient(index)"> delete</button> 
+    </div>
+
   </div>
 
