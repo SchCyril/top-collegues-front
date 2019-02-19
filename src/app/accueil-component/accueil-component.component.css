@@ -1,0 +1,8 @@
+:host .contenu {
+    display: flex;
+}
+:host #historique {
+    overflow: scroll;
+    height: 85vh;
+    margin-left: 25rem;
+}

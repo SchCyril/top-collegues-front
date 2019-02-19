@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Collegue, Avis, Vote } from '../modele';
 import { Source } from 'webpack-sources';
+import { Observable, from, of, Subject } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +11,11 @@ import { Source } from 'webpack-sources';
 export class DataService {
 
   // TODO alimenter la liste de collègues
+  private voteAjout = new Subject<Vote>();
 
+   get voteAjouter():Observable<Vote> {
+     return this.voteAjout.asObservable();
+   }
   private listeCollegues: Collegue[] = [
     {
       photoUrl: "https://i.pinimg.com/originals/39/78/c8/3978c88ee6fe2933568e37e8a8f72061.jpg",
@@ -50,52 +57,49 @@ export class DataService {
 
 
   ];
- 
 
-  private listeVotes: Vote[] = [
-    // {
-    //   collegue: this.listeCollegues[0],
-    //   avis: Avis.AIMER
-    // },
-    // {
-    //   collegue: this.listeCollegues[1],
-    //   avis: Avis.DETESTER
-    // }
 
-  ];
+  //  private listeVotes: Vote[] = [
+  // //   // {
+  // //   //   collegue: this.listeCollegues[0],
+  // //   //   avis: Avis.AIMER
+  // //   // },
+  // //   // {
+  // //   //   collegue: this.listeCollegues[1],
+  // //   //   avis: Avis.DETESTER
+  // //   // }
+
+  //  ];
 
 
 
   constructor() { }
 
-
-
-  lister(): Collegue[] {
-    // TODO retourner une liste fictives de collègues 
-    return this.listeCollegues;
+  lister(): Observable<Collegue[]> {
+    // const myObservable = of(this.listeCollegues);
+    return of(this.listeCollegues);
   }
+  // lister(): Collegue[] {
+  //   // TODO retourner une liste fictives de collègues 
+  //   return this.listeCollegues;
+  // }
 
-  donnerUnAvis(collegue: Collegue, avis: Avis): Collegue {
+  donnerUnAvis(collegue: Collegue, avis: Avis): Observable<Collegue> {
+    
     if (avis === Avis.AIMER) {
       collegue.score++;
     } else if (avis === Avis.DETESTER) {
       collegue.score--;
     }
-    let clone:Vote = { collegue: {...collegue}, avis};
+    //  let clone: Vote = { collegue: { ...collegue }, avis };
 
-    this.listeVotes.push(clone)
-    return collegue;
+    //  this.listeVotes.push(clone)
+     this.voteAjout.next({collegue, avis})
+    return of(collegue);
   }
 
-  listerVotes(): Vote[] {
-    // TODO retourner la liste des votes.
-    
-
-    return this.listeVotes;
-  }
-
-  deleteClient(index: number) {
-    this.listeVotes.splice(index, 1);
-  }
-
+  // listerVotes(): Observable<Vote[]> {
+  //   // TODO retourner la liste des votes.
+  //   return of(this.listeVotes);
+  // }
 }

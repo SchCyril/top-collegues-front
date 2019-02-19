@@ -2,3 +2,15 @@
     width: 5rem;
     height: 10vh;
 }
+
+:host #histo {
+
+    display: flex;
+    flex-direction: column-reverse;
+    
+
+}
+:host #contenu {
+    display: flex;
+    justify-content: flex-end;
+}

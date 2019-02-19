@@ -1,4 +1,10 @@
-<button (click)="refresh()">Refresh</button>
-<app-liste-collegues-component [collegues] = "_data.lister()"></app-liste-collegues-component>
-<app-historique-votes></app-historique-votes>
+<div class = "contenu">
+<div>
+    <button (click)="refresh()">Refresh</button>
+    <app-liste-collegues-component></app-liste-collegues-component>
+</div>
 
+<div id = "historique">
+    <app-historique-votes></app-historique-votes>
+</div>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { Vote } from '../modele';
 
 @Component({
   selector: 'app-historique-votes',
@@ -7,13 +8,21 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./historique-votes.component.css']
 })
 export class HistoriqueVotesComponent implements OnInit {
-
+  votes: Vote[] = Array<Vote>();
   constructor(public _data: DataService) { }
 
   ngOnInit() {
+    this._data.voteAjouter.subscribe(
+      value =>{
+        this.votes.push(value)
+        console.log(this.votes)
+      } 
+      
+    )
+    
   }
-  deleteClient(index : number){
+  deleteClient(index: number) {
     console.log(index);
-    this._data.deleteClient(index);
+    this.votes.splice(index, 1);
   }
 }
