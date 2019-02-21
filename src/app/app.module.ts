@@ -12,6 +12,9 @@ import { HistoriqueVotesComponent } from './historique-votes/historique-votes.co
 import { VoteCompteurComponent } from './vote-compteur/vote-compteur.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FormsModule }   from '@angular/forms';
+import { NouveauCollegueTemplateFormComponent } from './nouveau-collegue-template-form/nouveau-collegue-template-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,12 +26,14 @@ import { HttpClientModule } from '@angular/common/http';
     AccueilComponentComponent,
     HistoriqueVotesComponent,
     VoteCompteurComponent,
+    NouveauCollegueTemplateFormComponent,
     
   ],
   imports: [
     BrowserModule,
     NgxPaginationModule,
     HttpClientModule,
+    FormsModule,
     
   ],
   providers: [],

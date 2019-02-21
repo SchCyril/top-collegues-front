@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { tap, map } from 'rxjs/operators';
 import { VoteCompteurComponent } from '../vote-compteur/vote-compteur.component';
+import { CollegueComponent } from '../collegue/collegue.component';
 
 
 const URL_BACKEND = environment.backendUrl;
@@ -93,6 +94,8 @@ export class DataService {
     }
   }
 
+ 
+
   donnerUnAvis(collegue: Collegue, avis: Avis): Observable<Collegue> {
     // if (avis == Avis.AIMER) {
     //   collegue.score++;
@@ -107,9 +110,8 @@ export class DataService {
         this.voteAjout.next({collegue:col, avis})
       })
     )
-
-
   }
+
 
   disableButtons(collegue: Collegue, cases: string): boolean {
     if (cases == "like") {

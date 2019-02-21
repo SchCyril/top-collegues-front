@@ -1,0 +1,21 @@
+<h1>Formulaire piloté par le template</h1>
+        <form (ngSubmit)="submit()">
+
+            <label>Matricule</label><input name="matricule" [(ngModel)]="matricule" #matri="ngModel" required>
+      
+
+            <label>Pseudo</label><input [(ngModel)]="pseudo" name="pseudo" #name = "ngModel" required minlength="2">
+
+            
+
+            <label>Image URL</label><input [(ngModel)]="imgUrl" name="imgUrl">
+            <br>
+
+            <p *ngIf="name.valid && name.valid; else elseBlock"> <button type="submit">Valider</button></p>
+            <br>
+
+            <ng-template #elseBlock><button type="submit" (click)="addCollegue()" disabled>Valider</button></ng-template>
+
+
+            {{matricule}} {{pseudo}}
+        </form>
