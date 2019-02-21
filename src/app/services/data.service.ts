@@ -2,8 +2,11 @@ import { Injectable } from '@angular/core';
 import { Collegue, Avis, Vote } from '../modele';
 import { Source } from 'webpack-sources';
 import { Observable, from, of, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from 'selenium-webdriver/http';
 
 
+const URL_BACKEND = environment.backendUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -73,33 +76,29 @@ export class DataService {
 
 
 
-  constructor() { }
+  constructor() {
+  }
 
   lister(): Observable<Collegue[]> {
-    // const myObservable = of(this.listeCollegues);
+
     return of(this.listeCollegues);
   }
-  // lister(): Collegue[] {
-  //   // TODO retourner une liste fictives de collègues 
-  //   return this.listeCollegues;
-  // }
 
   donnerUnAvis(collegue: Collegue, avis: Avis): Observable<Collegue> {
-    
-    if (avis === Avis.AIMER) {
+    if (avis == Avis.AIMER) {
       collegue.score++;
-    } else if (avis === Avis.DETESTER) {
+    } else if (avis == Avis.DETESTER) {
       collegue.score--;
     }
-    //  let clone: Vote = { collegue: { ...collegue }, avis };
-
-    //  this.listeVotes.push(clone)
-     this.voteAjout.next({collegue, avis})
+    this.voteAjout.next({ collegue : {...collegue}, avis });
     return of(collegue);
   }
 
-  // listerVotes(): Observable<Vote[]> {
-  //   // TODO retourner la liste des votes.
-  //   return of(this.listeVotes);
-  // }
+  disableButtons(collegue: Collegue, cases: string): boolean {
+    if (cases == "like") {
+      return collegue.score < 10;
+    } else {
+      return collegue.score > -10;
+    }
+  }
 }

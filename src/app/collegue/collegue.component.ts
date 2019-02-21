@@ -17,21 +17,23 @@ export class CollegueComponent implements OnInit {
   constructor(private _data:DataService) { }
 
   ngOnInit() {
-    this.gererActivationBouton();
+    this.likeActif = this._data.disableButtons(this.collegue, "like");
+    this.unLikeActif = this._data.disableButtons(this.collegue, "unlike");
   }
 
   vote(avis: Avis) {
     
     this._data.donnerUnAvis(this.collegue, avis);
-    this.gererActivationBouton();
+    this.likeActif = this._data.disableButtons(this.collegue, "like");
+    this.unLikeActif = this._data.disableButtons(this.collegue, "unlike");
 
 
   }
-  gererActivationBouton() {
-    this.likeActif = this.collegue.score < 10;
-    this.unLikeActif = this.collegue.score > -10;
+  // gererActivationBouton() {
+  //   this.likeActif = this.collegue.score < 10;
+  //   this.unLikeActif = this.collegue.score > -10;
 
-  }
+  // }
 
 
 }

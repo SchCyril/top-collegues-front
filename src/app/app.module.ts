@@ -10,6 +10,7 @@ import { ListeColleguesComponentComponent } from './liste-collegues-component/li
 import { AccueilComponentComponent } from './accueil-component/accueil-component.component';
 import { HistoriqueVotesComponent } from './historique-votes/historique-votes.component';
 import { VoteCompteurComponent } from './vote-compteur/vote-compteur.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { VoteCompteurComponent } from './vote-compteur/vote-compteur.component';
   ],
   imports: [
     BrowserModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    HttpClientModule,
     
   ],
   providers: [],
