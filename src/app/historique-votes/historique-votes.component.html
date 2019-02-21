@@ -6,8 +6,8 @@ historique-votes works!
       <img src={{vote.collegue.photoUrl}} id="photo">
       {{vote.collegue.pseudo}}
 
-      <span *ngIf="vote.avis === 0"> il est aimé, avec un score de {{vote.collegue.score}}</span>
-      <span *ngIf="vote.avis === 1">il est détesté, avec un score de {{vote.collegue.score}}</span>
+      <span >il est {{vote.avis == Avis.AIMER ? 'aimé' : 'détesté'}}, avec un score de {{vote.collegue.score}}</span>
+     
       <div>
         <button (click)="deleteClient(index)"> delete</button>
       </div>

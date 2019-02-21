@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { Vote } from '../modele';
+import { Vote, Avis } from '../modele';
 
 @Component({
   selector: 'app-historique-votes',
@@ -8,6 +8,9 @@ import { Vote } from '../modele';
   styleUrls: ['./historique-votes.component.css']
 })
 export class HistoriqueVotesComponent implements OnInit {
+
+  Avis = Avis;
+
   votes: Vote[] = Array<Vote>();
   constructor(public _data: DataService) { }
 
