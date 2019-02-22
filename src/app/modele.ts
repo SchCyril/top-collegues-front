@@ -16,3 +16,9 @@ export interface Vote {
     avis : Avis
 
 }
+
+export interface CreerCollegue {
+    matricule?: string;
+    pseudo?: string;
+    imgUrl?: string;
+}

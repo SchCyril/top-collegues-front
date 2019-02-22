@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Collegue, Avis, Vote } from '../modele';
+import { Collegue, Avis, Vote, CreerCollegue } from '../modele';
 import { Source } from 'webpack-sources';
 import { Observable, from, of, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { tap, map } from 'rxjs/operators';
+import { tap, map, catchError } from 'rxjs/operators';
 import { VoteCompteurComponent } from '../vote-compteur/vote-compteur.component';
 import { CollegueComponent } from '../collegue/collegue.component';
 
@@ -94,7 +94,7 @@ export class DataService {
     }
   }
 
- 
+
 
   donnerUnAvis(collegue: Collegue, avis: Avis): Observable<Collegue> {
     // if (avis == Avis.AIMER) {
@@ -104,12 +104,12 @@ export class DataService {
     // }
     // this.voteAjout.next({ collegue: { ...collegue }, avis });
     // return of(collegue);
-    return this._httpClient.patch<Collegue>(URL_BACKEND + "/collegues/" + collegue.pseudo, {action: avis}, httpOptions)
-    .pipe(
-      tap(col => {
-        this.voteAjout.next({collegue:col, avis})
-      })
-    )
+    return this._httpClient.patch<Collegue>(URL_BACKEND + "/collegues/" + collegue.pseudo, { action: avis }, httpOptions)
+      .pipe(
+        tap(col => {
+          this.voteAjout.next({ collegue: col, avis })
+        })
+      )
   }
 
 
@@ -120,7 +120,9 @@ export class DataService {
       return collegue.score > -1000;
     }
   }
-
-
+  addCollegue(creerCollegue:CreerCollegue): Observable<Collegue> {
+    console.log("nouvel ajout");
+    return this._httpClient.post<Collegue>(URL_BACKEND + "/collegues/", creerCollegue, httpOptions);
+  }
 
 }

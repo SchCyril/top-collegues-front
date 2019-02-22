@@ -1,18 +1,37 @@
-
-
-<app-bonjour></app-bonjour>
-<app-vote-compteur></app-vote-compteur>
-
-<app-bonjour-avec-prenom [prenom]="'Cyril'"></app-bonjour-avec-prenom>
-<app-bonjour-avec-prenom [prenom]="'Lorick'"></app-bonjour-avec-prenom>
-<app-nouveau-collegue-template-form></app-nouveau-collegue-template-form>
-
-
-
 <!-- <app-collegue [collegue] = "unCollegue"></app-collegue> -->
+<header>
+    <!-- Entête -->
+</header>
 
-<app-accueil-component></app-accueil-component>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" routerLink="/accueil" routerLinkActive="active-link">Accueil </a>
+            <a class="nav-item nav-link" routerLink="/formulaire" routerLinkActive="active-link">Formulaire</a>
+            
+        </div>
+    </div>
+</nav>
 
 
 
+<main>
 
+    <!-- le composant défini dans la route courante va être inséré à cet endroit -->
+
+    <!-- au regard de la configuration précédente, 
+       /page1 va insérer le composant AComponent à cet emplacement
+       /page2 a insérer le composant BComponent à cet emplacement
+   -->
+
+    <router-outlet></router-outlet>
+</main>
+<footer>
+    <!-- Pied de page -->
+</footer>

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { CreerCollegue } from '../modele';
 
 @Component({
   selector: 'app-nouveau-collegue-template-form',
@@ -7,15 +9,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NouveauCollegueTemplateFormComponent implements OnInit {
 
-  matricule: string;
-  pseudo: string;
-  imgUrl: string
+  creerCollegue: CreerCollegue = {};
 
 
-  constructor() { }
+  constructor(private _httpService:DataService) { }
 
   ngOnInit() {
   }
  
-
+  addCollegue(){
+    //console.log(this.creerCollegue)
+    this._httpService.addCollegue(this.creerCollegue).subscribe();
+  }
 }

@@ -14,6 +14,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule }   from '@angular/forms';
 import { NouveauCollegueTemplateFormComponent } from './nouveau-collegue-template-form/nouveau-collegue-template-form.component';
+import { MenuComponentComponent } from './menu-component/menu-component.component';
+import { routes } from './app.routes';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +31,8 @@ import { NouveauCollegueTemplateFormComponent } from './nouveau-collegue-templat
     HistoriqueVotesComponent,
     VoteCompteurComponent,
     NouveauCollegueTemplateFormComponent,
+    MenuComponentComponent,
+    
     
   ],
   imports: [
@@ -34,6 +40,7 @@ import { NouveauCollegueTemplateFormComponent } from './nouveau-collegue-templat
     NgxPaginationModule,
     HttpClientModule,
     FormsModule,
+    RouterModule.forRoot(routes),
     
   ],
   providers: [],
